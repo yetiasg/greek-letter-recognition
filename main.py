@@ -43,7 +43,7 @@ model = models.Sequential([
     layers.MaxPooling2D((2, 2)),
     layers.Conv2D(128, (3, 3), activation='relu', kernel_regularizer=regularizers.l2(0.001)),
     layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(128, (3, 3), activation='relu', kernel_regularizer=regularizers.l2(0.001)),
+    layers.Conv2D(256, (3, 3), activation='relu', kernel_regularizer=regularizers.l2(0.001)),
     layers.Flatten(),
     layers.Dense(256, activation='relu', kernel_regularizer=regularizers.l2(0.001)),
     layers.Dropout(0.5),  # Dodanie dropoutu 50% Wyłączanie losowych neuronów podczas treningu, co zmusza model do uczenia się bardziej ogólnych wzorców.
@@ -56,7 +56,7 @@ model.compile(optimizer='adam',
 
 model.fit(
     train_generator,
-    epochs=20,
+    epochs=30,
     validation_data=validation_generator
 )
 
